@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una Historia Para Ti</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for elegant typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for typography and theme */
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #0c1424; /* Darker blue */
+            color: #cbd5e1; /* slate-300 */
+            transition: background-color 1.5s ease;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Animated Background --- */
+        #animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite ease-in-out;
+            opacity: 0;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* --- Body states for background changes --- */
+        body.state-storm {
+            background-color: #080a10; /* Even darker for storm */
+        }
+        
+        /* --- Text Scroll Animations --- */
+        .scroll-animate {
+            opacity: 0;
+            transition: opacity 1.2s ease-out, transform 1s ease-out;
+            transform: translateY(30px);
+        }
+        .is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- New Music Card Styling --- */
+        .music-card {
+            display: block;
+            position: relative; /* Needed for overlay */
+            border-radius: 0.75rem; /* 12px */
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .music-card::before { /* Gradient overlay */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(12, 20, 36, 0.95) 10%, rgba(12, 20, 36, 0.3) 70%, rgba(12, 20, 36, 0.1) 100%);
+            transition: background 0.4s ease;
+        }
+        .music-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+        }
+        .music-card:hover::before {
+            background: linear-gradient(to top, rgba(12, 20, 36, 0.8) 0%, rgba(12, 20, 36, 0.2) 70%, rgba(12, 20, 36, 0.0) 100%);
+        }
+        .music-card-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .play-icon {
+            font-size: 3.5rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+            transition: transform 0.3s ease;
+        }
+        .music-card:hover .play-icon {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="selection:bg-rose-400/20">
+    <!-- Background -->
+    <div id="animated-bg"></div>
+    
+    <div class="relative z-10 container mx-auto max-w-3xl p-6 sm:p-12">
+        
+        <header class="text-center mb-16 scroll-animate">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">El Guardián del Faro y la Estrella Inesperada</h1>
+            <p class="text-rose-300/80 italic">Para la chica que ama leer, con la esperanza de que esta historia encuentre su camino a tu corazón.</p>
+        </header>
+
+        <main class="space-y-16">
+            <!-- Chapter 1 -->
+            <section id="chapter1" class="story-section">
+                <h2 class="text-3xl md:text-4xl text-sky-300/90 mb-6 border-b border-sky-200/10 pb-2 scroll-animate">Capítulo 1: La Luz que lo Cambió Todo</h2>
+                <div class="space-y-6 text-lg">
+                    <p class="scroll-animate">Había una vez un Guardián que vivía en un faro antiguo, a la orilla de un mar vasto y solitario. Su trabajo era simple: mantener una luz encendida. Pero con el tiempo, se había acostumbrado a la penumbra, a la compañía del eco de las olas y a la seguridad de sus muros de piedra. Se sentía a salvo en su soledad, aunque no se había dado cuenta de lo gris que se había vuelto su mundo.</p>
+                    <p class="scroll-animate">Hasta que una noche, en el horizonte, apareció algo que no era una estrella fugaz ni un barco lejano. Era una <span class="text-amber-200/90 font-semibold">luz nueva, una constelación personal</span> que brillaba con una intensidad que nunca había visto. Era cálida, juguetona y llena de una inteligencia deslumbrante. Desde su torre, el Guardián la observaba, fascinado.</p>
+                    <p class="scroll-animate">Todo fluyó de una manera tan natural que parecía un sueño. Por primera vez en años, el Guardián no se sentía como un simple vigilante de piedra, sino como él mismo. Esa luz le hacía ver su propio valor; le hacía sentir que su faro, su pequeña existencia, era importante. Quedó prendado de su brillo, de los pequeños destellos que parecían hoyuelos en el cielo, de la forma en que su luz parecía competir con el amanecer, sin querer perder jamás.</p>
+                    <p class="scroll-animate">Se encontró a sí mismo haciendo cosas que no solía hacer. Se despertaba más temprano solo para no perderse su aparición en el alba. Empezó a leer viejos libros de astronomía que tenía empolvados, solo para entender mejor la naturaleza de su nueva estrella favorita. Se imaginaba cómo sería verla de cerca, qué paisajes celestiales atesoraría. En el silencio de su faro, una melodía constante sonaba en su cabeza, una promesa silenciosa que esperaba algún día poder susurrarle en persona.</p>
+                    
+                    <a href="https://www.youtube.com/watch?v=M3FDYzqFBlM" target="_blank" class="music-card scroll-animate mt-8" style="background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop');">
+                        <div class="music-card-content">
+                            <div class="play-icon">▶️</div>
+                            <h3 class="text-2xl font-bold">Mi vida eres tu</h3>
+                            <p class="text-slate-300">Haz clic para escuchar</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Chapter 2 -->
+            <section id="chapter2" class="story-section">
+                <h2 class="text-3xl md:text-4xl text-sky-300/90 mb-6 border-b border-sky-200/10 pb-2 scroll-animate">Capítulo 2: La Sombra de la Vieja Tormenta</h2>
+                <div class="space-y-6 text-lg">
+                    <p class="scroll-animate">Pero los faros antiguos guardan historias. Y el del Guardián tenía una cicatriz profunda. Años atrás, una tormenta brutal había azotado su costa. No fue una tormenta cualquiera. El Guardián, en un acto de confianza absoluta, le había entregado los planos de su faro, mostrándole sus cimientos, sus puntos más frágiles, las grietas que solo él conocía. Le confió el mecanismo de su luz, creyendo que le ayudarían a cuidarlo.</p>
+                    <p class="scroll-animate">Pero la tormenta fue cruel. Usó esos mismos planos para golpear con precisión devastadora. Cada vulnerabilidad fue explotada, cada miedo fue convertido en un arma. El gran lente del faro, el corazón de su luz, quedó astillado. El mecanismo, lleno de arena y óxido. La tormenta se fue, dejando tras de sí una versión rota del Guardián: desconfiado, dolorido y con un miedo paralizante a que su luz volviera a ser usada para destruirlo.</p>
+                    <p class="scroll-animate">Amar, para él, era entregar los planos completos desde el inicio. Era su forma de ser. Pero ahora, entregar esos planos significaba arriesgarse a una destrucción de la que quizás no podría recuperarse.</p>
+                </div>
+            </section>
+
+            <!-- Chapter 3 -->
+            <section id="chapter3" class="story-section">
+                <h2 class="text-3xl md:text-4xl text-sky-300/90 mb-6 border-b border-sky-200/10 pb-2 scroll-animate">Capítulo 3: El Silencio del Faro</h2>
+                <div class="space-y-6 text-lg">
+                    <p class="scroll-animate">Mientras observaba a su estrella brillar en el horizonte, el pánico lo invadió. La sombra de la vieja tormenta se proyectó sobre él. Se miró las manos, aún manchadas de óxido y dolor. Miró el lente astillado de su faro.</p>
+                    <p class="scroll-animate"><span class="italic text-rose-300/80">¿Mi luz está rota? ¿Qué pasa si al intentar brillar para ella, mi lente astillado proyecta una luz distorsionada y le hago daño? ¿Soy digno de una luz tan pura o mi oscuridad la manchará? ¿Soy dolor o soy amor?</span></p>
+                    <p class="scroll-animate">En su cabeza, se desató un caos. El recuerdo de la traición era un ruido ensordecedor. Y entonces, tomó la decisión equivocada por la razón correcta. Pensó que lo más honorable era protegerla de su propio caos. Se dijo a sí mismo: "Me detendré. Repararé el lente en silencio. Y solo cuando esté seguro de que mi luz puede brillar de forma pura y estable, volveré a buscarla. Es mejor que desaparezca un momento a que mi luz rota le cause una herida permanente".</p>
+                    <p class="scroll-animate">Y así, el Guardián se encerró en la oscuridad de su faro para empezar las reparaciones. Rompió la magia para no romperle el corazón más tarde. Pero no se dio cuenta de que, desde el horizonte, para su estrella, su luz simplemente... se apagó. Sin explicación. Sin un adiós.</p>
+                    <p class="scroll-animate">Mientras trabajaba en la oscuridad, una canción diferente, una más juguetona y llena de anhelo, le recordaba la sonrisa que lo había impulsado a querer repararse en primer lugar. Era la luz abriéndose paso en su caos.</p>
+                    
+                    <a href="https://www.youtube.com/watch?v=NDDlAPCncyA" target="_blank" class="music-card scroll-animate mt-8" style="background-image: url('https://images.unsplash.com/photo-1496450681664-3df85efbd29f?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="music-card-content">
+                            <div class="play-icon">▶️</div>
+                            <h3 class="text-2xl font-bold">Maripositas</h3>
+                            <p class="text-slate-300">Haz clic para escuchar en YouTube</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Chapter 4 -->
+            <section id="chapter4" class="story-section">
+                 <h2 class="text-3xl md:text-4xl text-sky-300/90 mb-6 border-b border-sky-200/10 pb-2 scroll-animate">Capítulo 4: El Eco de un "Ojalá"</h2>
+                 <div class="space-y-6 text-lg">
+                     <p class="scroll-animate">Cuando el Guardián finalmente tuvo el valor para salir, con el lente un poco más claro pero el corazón aún tembloroso, se dio cuenta de su terrible error. El silencio había sido más dañino que cualquier luz rota.</p>
+                     <p class="scroll-animate">Intentó enviar una señal. Escribió un mensaje en clave, una canción que era una declaración de sus intenciones, con el nombre de ella escondido en el título como un secreto a voces: <strong class="text-rose-300/80">N</strong>o encontr<strong class="text-rose-300/80">A</strong>ré <strong class="text-rose-300/80">Y</strong>a nadi<strong class="text-rose-300/80">E</strong> como tú.</p>
+                     <p class="scroll-animate">Luego, reunió todo su coraje y emprendió un viaje. Había aprendido que a su estrella le encantaban las <span class="text-rose-300/80 font-semibold">gerberas, pequeños soles terrenales</span>. Juntó seis de ellas, un número que en sus libros de historias lejanas significaba una confesión silenciosa: "Estoy enamorado de ti". Compró un viejo barco de metal y navegó por tierras desconocidas, perdiéndose en el camino.</p>
+                     <p class="scroll-animate">Cuando por fin llegó al lugar correcto, la luz de la estrella no estaba. Se había quedado dormida. El Guardián se quedó allí, con sus seis pequeños soles en la mano, sintiendo el peso de su silencio. Logró enviar un breve mensaje, explicando sus intenciones. La respuesta llegó, y cada palabra resonó en su faro vacío: <span class="italic text-rose-300/80">"Ojalá me lo hubieras dicho antes de desaparecer."</span></p>
+                 </div>
+            </section>
+
+            <!-- Epilogue -->
+            <section id="epilogue" class="story-section">
+                <h2 class="text-3xl md:text-4xl text-sky-300/90 mb-6 border-b border-sky-200/10 pb-2 scroll-animate">Epílogo: Esta Botella al Mar</h2>
+                <div class="space-y-6 text-lg">
+                    <p class="scroll-animate">Hoy, el Guardián sigue en su faro. A veces, viaja a la comunidad de su estrella, no para buscarla, sino para recordar la belleza del lugar que la formó. La luz de ella sigue en el horizonte, pero ahora parece más lejana.</p>
+                    <p class="scroll-animate">En su soledad, una nueva canción resuena, un himno a las palabras no dichas y a lo que pudo haber sido.</p>
+                    
+                     <a href="https://www.youtube.com/watch?v=9G9WhNiEqMs" target="_blank" class="music-card scroll-animate mt-8" style="background-image: url('https://images.unsplash.com/photo-1517383213813-d0891b73e5f4?q=80&w=2070&auto=format&fit=crop');">
+                        <div class="music-card-content">
+                            <div class="play-icon">▶️</div>
+                            <h3 class="text-2xl font-bold">No Digas Nada</h3>
+                            <p class="text-slate-300">Haz clic para escuchar en YouTube</p>
+                        </div>
+                    </a>
+                    
+                    <p class="scroll-animate font-bold text-white mt-8">Esta historia es para que sepas que todo fue real. Que tu luz cambió mi mundo. Que aún me gustas de verdad y que lamento haberte hecho sentir que no era así. Es mi forma de decirlo todo, para no guardarme nada.</p>
+                     <p class="scroll-animate">Quizás el mar lleve esta botella a tu orilla. O quizás no. Pero el Guardián necesitaba que el océano supiera que, de todas las luces del universo, la suya fue, y sigue siendo, su favorita.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-16 text-slate-500 text-sm scroll-animate">
+            <p>&copy; 2024. Con el corazón en la mano.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Animated Background Logic ---
+            const bg = document.getElementById('animated-bg');
+            const numStars = 100;
+            for (let i = 0; i < numStars; i++) {
+                let star = document.createElement('div');
+                star.className = 'star';
+                let size = Math.random() * 2;
+                star.style.width = `${size}px`; star.style.height = `${size}px`;
+                star.style.top = `${Math.random() * 100}%`; star.style.left = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`; star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                bg.appendChild(star);
+            }
+
+            // --- Scroll & Background Animation Logic ---
+            const scrollElements = document.querySelectorAll('.scroll-animate');
+            const sections = document.querySelectorAll('.story-section');
+            const body = document.body;
+
+            const textObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        textObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            scrollElements.forEach(el => textObserver.observe(el));
+            
+            const bgObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        body.classList.remove('state-storm');
+                        if (entry.target.id === 'chapter2') {
+                            body.classList.add('state-storm');
+                        }
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+            sections.forEach(section => bgObserver.observe(section));
+        });
+    </script>
+</body>
+</html>
